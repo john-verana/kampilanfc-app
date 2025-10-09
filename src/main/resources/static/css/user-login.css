@@ -1,0 +1,112 @@
+/* user-login page */
+/* Wrapper uses the same centered layout as body */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f0f0f0;
+}
+
+/* Adapt card styling from dashboard */
+.login-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 28px 24px;
+    width: 340px;
+    text-align: center;
+}
+
+/* Brand */
+.brand {
+    font-size: 26px;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+/* Instruction text */
+.instruction {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 22px;
+    line-height: 1.5;
+}
+
+/* Input styling */
+#username {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Blue button matches dashboard theme */
+.btn {
+    background: #0b6ef6;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 18px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+.btn:hover {
+    background: #094db8;
+    transform: scale(1.03);
+}
+
+/* Loader animation */
+.loader {
+    display: none;
+    width: 28px;
+    height: 28px;
+    border: 3px solid #ccc;
+    border-top: 3px solid #0b6ef6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 14px auto;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Message styling */
+.message {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #222;
+    font-weight: 500;
+}
+
+/* Fade animation for welcome message */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.6s forwards;
+}
+
+.fade-out {
+    opacity: 1;
+    animation: fadeOut 0.6s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-8px); }
+}
