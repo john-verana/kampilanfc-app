@@ -2,8 +2,6 @@ package com.kampilanfc.app.domain;
 
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Pattern;
 import java.time.Instant;
 
 
@@ -19,13 +17,18 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Pattern(regexp = "^[a-zA-Z0-9._]{3,20}$", message = "User name must be between 3 and 20 characters long and contain only letters, numbers, . and _")
     @Column(nullable = false, length = 20)
     private String username;
 
-    @Email(message = "Invalid email")
     @Column(nullable = false, length = 255)
     private String email;
+
+    @Column(nullable = false, length = 255)
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    private Role role = Role.PLAYER;
 
     @Column(nullable = false)
     private boolean verified = false;
@@ -57,6 +60,10 @@ public class User {
     public void setUsername(String username) { this.username = username; }
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+    public Role getRole() { return role; }
+    public void setRole(Role role) { this.role = role; }
     public boolean isVerified() { return verified; }
     public void setVerified(boolean verified) { this.verified = verified; }
     public Instant getCreatedAt() { return createdAt; }
