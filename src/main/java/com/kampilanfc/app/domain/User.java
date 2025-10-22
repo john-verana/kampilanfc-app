@@ -20,6 +20,10 @@ public class User {
     @Column(nullable = false, length = 20)
     private String username;
 
+    public void setUsername() {
+        this.username = username != null ? username.toLowerCase() : null;
+    }
+
     @Column(nullable = false, length = 255)
     private String email;
 
