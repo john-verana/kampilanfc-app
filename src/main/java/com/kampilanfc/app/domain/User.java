@@ -20,10 +20,6 @@ public class User {
     @Column(nullable = false, length = 20)
     private String username;
 
-    public void setUsername() {
-        this.username = username != null ? username.toLowerCase() : null;
-    }
-
     @Column(nullable = false, length = 255)
     private String email;
 
@@ -61,7 +57,9 @@ public class User {
     //getters & setters
     public Long getId() { return id; }
     public String getUsername() { return username; }
-    public void setUsername(String username) { this.username = username; }
+    public void setUsername(String username) {
+        this.username = username != null ? username.toLowerCase() : null;
+    }
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
     public String getPassword() { return password; }
