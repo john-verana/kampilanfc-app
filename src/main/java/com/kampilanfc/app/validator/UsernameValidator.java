@@ -9,7 +9,7 @@ public class UsernameValidator {
 
     private static final int MIN_LENGTH = 3;
     private static final int MAX_LENGTH = 20;
-    private static final String USERNAME_PATTERN = "^[a-zA-Z0-9._]+$";
+    private static final String USERNAME_PATTERN = "^[a-zA-Z][a-zA-Z0-9._]+$";
 
     private static final Pattern PATTERN = Pattern.compile(USERNAME_PATTERN);
 
@@ -22,7 +22,7 @@ public class UsernameValidator {
         }
 
         if (username.length() > MAX_LENGTH) {
-            return ValidationResult.failure("Username too long (maxium 20 characters)");
+            return ValidationResult.failure("Username too long (maximum 20 characters)");
         }
 
         if (!PATTERN.matcher(username).matches()) {
