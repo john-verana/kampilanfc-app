@@ -25,6 +25,27 @@ public class UsernameValidator {
             return ValidationResult.failure("Username too long (maximum 20 characters)");
         }
 
+        if (username.startsWith(".") || username.startsWith("_") ||
+                username.endsWith(".") || username.endsWith("_")) {
+            return ValidationResult.failure("Username cannot start or end with a dot or underscore");
+        }
+
+        long dotCount = username.chars().filter(c -> c == '.').count();
+        long underscoreCount = username.chars().filter(c -> c == '_').count();
+
+        if (dotCount > 1) {
+            return ValidationResult.failure("Username can only contain one dot");
+        }
+
+        if (underscoreCount > 1) {
+            return ValidationResult.failure("Username can only contain one underscore");
+        }
+
+        if (username.contains("._") || username.contains("_."))
+        {
+            return ValidationResult.failure("Username cannot contain consecutive punctuation like '._' or '_.");
+        }
+
         if (!PATTERN.matcher(username).matches()) {
             return ValidationResult.failure("Username can only contain letters, numbers, dots, and underscores");
         }
